@@ -1,4 +1,4 @@
-package ru.matchtoday;
+package ru.matchtoday.Entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
