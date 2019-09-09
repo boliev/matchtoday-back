@@ -1,55 +1,80 @@
 package ru.matchtoday.Entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
-@Entity
+import javax.persistence.*;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.util.Date;
+
+@Entity(name = "matches")
 public class Match {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String homeTeam;
-    private String guestTeam;
+
+    @ManyToOne
+    private Team homeTeam;
+
+    @ManyToOne
+    private Team guestTeam;
+
+    @ManyToOne
+    private Tournament tournament;
+
+    @ManyToOne
+    private TournamentStage tournamentStage;
+
+    private Timestamp datetime;
+
+    @CreationTimestamp
+    private LocalDateTime createdAt;
+
+    @UpdateTimestamp
+    private LocalDateTime updatedAt;
 
     protected Match() {
     }
 
-    public Match(String homeTeam, String guestTeam) {
+    public Match(Team homeTeam, Team guestTeam, Timestamp datetime, Tournament tournament, TournamentStage tournamentStage) {
         this.homeTeam = homeTeam;
         this.guestTeam = guestTeam;
-    }
-
-    @Override
-    public String toString() {
-        return String.format(
-                "Match[id=%d, homeTeam='%s', guestTeam='%s']",
-                id, homeTeam, guestTeam);
+        this.tournament = tournament;
+        this.tournamentStage = tournamentStage;
+        this.datetime = datetime;
     }
 
     public Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getHomeTeam() {
+    public Team getHomeTeam() {
         return homeTeam;
     }
 
-    public void setHomeTeam(String homeTeam) {
-        this.homeTeam = homeTeam;
-    }
-
-    public String getGuestTeam() {
+    public Team getGuestTeam() {
         return guestTeam;
     }
 
-    public void setGuestTeam(String guestTeam) {
-        this.guestTeam = guestTeam;
+    public Tournament getTournament() {
+        return tournament;
+    }
+
+    public TournamentStage getTournamentStage() {
+        return tournamentStage;
+    }
+
+    public Date getDatetime() {
+        return datetime;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
     }
 }

@@ -9,8 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.time.LocalDateTime;
 
-@Entity(name = "teams")
-public class Team {
+@Entity(name = "tournaments")
+public class Tournament {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,21 +18,17 @@ public class Team {
 
     private String name;
 
-    private String country;
-
     @CreationTimestamp
     private LocalDateTime createdAt;
 
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
-    protected Team() {
+    protected Tournament() {
     }
 
-    public Team(String name, String country) {
+    public Tournament(String name) {
         this.name = name;
-        this.country = country;
-
     }
 
     public Long getId() {
@@ -41,10 +37,6 @@ public class Team {
 
     public String getName() {
         return name;
-    }
-
-    public String getCountry() {
-        return country;
     }
 
     public LocalDateTime getCreatedAt() {

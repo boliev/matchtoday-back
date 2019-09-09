@@ -3,14 +3,11 @@ package ru.matchtoday.Entity;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@Entity(name = "teams")
-public class Team {
+@Entity(name = "tournament_stages")
+public class TournamentStage {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,7 +15,8 @@ public class Team {
 
     private String name;
 
-    private String country;
+    @ManyToOne
+    private Tournament tournament;
 
     @CreationTimestamp
     private LocalDateTime createdAt;
@@ -26,13 +24,12 @@ public class Team {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
-    protected Team() {
+    protected TournamentStage() {
     }
 
-    public Team(String name, String country) {
+    public TournamentStage(String name, Tournament tournament) {
         this.name = name;
-        this.country = country;
-
+        this.tournament = tournament;
     }
 
     public Long getId() {
@@ -43,8 +40,8 @@ public class Team {
         return name;
     }
 
-    public String getCountry() {
-        return country;
+    public Tournament getTournament() {
+        return tournament;
     }
 
     public LocalDateTime getCreatedAt() {
