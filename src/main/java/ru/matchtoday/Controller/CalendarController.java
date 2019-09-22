@@ -35,14 +35,16 @@ public class CalendarController {
 
     @RequestMapping("/")
     public String index() {
-        Team alania = createTeam("Alania", "RU");
-        Team spartak = createTeam("Spartak", "RU");
-        Team zenit = createTeam("Zenit", "RU");
-        Team cska = createTeam("CSKA", "RU");
-        Team lokomotiv = createTeam("Lokomotiv", "RU");
-        Team dinamo = createTeam("Dinamo", "RU");
+        // This is just test code
+        Team alania = createTeam("Alania", "RU", (long) 1306500);
+        Team spartak = createTeam("Spartak", "RU", (long) 1306582);
+        Team zenit = createTeam("Zenit", "RU", (long) 1306495);
+        Team cska = createTeam("CSKA", "RU", (long) 1306500);
+        Team lokomotiv = createTeam("Lokomotiv", "RU", (long) 1306527);
+        Team dinamo = createTeam("Dinamo", "RU", (long) 1306597);
 
         Tournament russiaLeague = new Tournament("Russia league");
+        russiaLeague.setLsId((long) 7);
         tournamentRepository.save(russiaLeague);
         TournamentStage tur1 = new TournamentStage("Stage 1", russiaLeague);
         tournamentStageRepository.save(tur1);
@@ -54,8 +56,9 @@ public class CalendarController {
         return "Hey hey hey! This is your calendar maaaaan!";
     }
 
-    private Team createTeam(String name, String country) {
+    private Team createTeam(String name, String country, Long lsId) {
         Team team = new Team(name, country);
+        team.setLsId(lsId);
         teamRepository.save(team);
         return team;
     }

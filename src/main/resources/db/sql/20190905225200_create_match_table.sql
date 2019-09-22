@@ -4,6 +4,7 @@ CREATE TABLE matches (
     guest_team_id INT,
     tournament_id INT,
     tournament_stage_id INT,
+    ls_id INT,
     datetime TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL,
     created_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL,
     updated_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL,

@@ -18,6 +18,8 @@ public class Tournament {
 
     private String name;
 
+    private Long lsId;
+
     @CreationTimestamp
     private LocalDateTime createdAt;
 
@@ -45,5 +47,13 @@ public class Tournament {
 
     public LocalDateTime getUpdatedAt() {
         return updatedAt;
+    }
+
+    public Long getLsId() {
+        return lsId;
+    }
+
+    public void setLsId(Long lsId) {
+        this.lsId = lsId;
     }
 }

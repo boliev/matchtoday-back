@@ -20,6 +20,8 @@ public class Team {
 
     private String country;
 
+    private Long lsId;
+
     @CreationTimestamp
     private LocalDateTime createdAt;
 
@@ -53,5 +55,13 @@ public class Team {
 
     public LocalDateTime getUpdatedAt() {
         return updatedAt;
+    }
+
+    public Long getLsId() {
+        return lsId;
+    }
+
+    public void setLsId(Long lsId) {
+        this.lsId = lsId;
     }
 }

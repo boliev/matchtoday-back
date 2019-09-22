@@ -27,6 +27,8 @@ public class Match {
     @ManyToOne
     private TournamentStage tournamentStage;
 
+    private Long lsId;
+
     private Timestamp datetime;
 
     @CreationTimestamp
@@ -76,5 +78,13 @@ public class Match {
 
     public LocalDateTime getUpdatedAt() {
         return updatedAt;
+    }
+
+    public Long getLsId() {
+        return lsId;
+    }
+
+    public void setLsId(Long lsId) {
+        this.lsId = lsId;
     }
 }
