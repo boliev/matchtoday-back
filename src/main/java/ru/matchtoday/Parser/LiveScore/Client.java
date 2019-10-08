@@ -5,6 +5,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.util.UriComponentsBuilder;
 import ru.matchtoday.Controller.CalendarController;
@@ -24,10 +25,17 @@ import java.util.Map;
 // https://www.dariawan.com/tutorials/java/introduction-to-java-11-standarized-http-client-api/
 @Service
 public class Client {
-    private String scheme = "https";
-    private String host = "livescore-api.com/api-client/";
-    private String key = "";
-    private String secret = "";
+    @Value( "${parser.ls.scheme}" )
+    private String scheme;
+
+    @Value( "${parser.ls.host}" )
+    private String host;
+
+    @Value( "${parser.ls.key}" )
+    private String key;
+
+    @Value( "${parser.ls.secret}" )
+    private String secret;
 
     private HttpClient client = HttpClient.newHttpClient();
 
