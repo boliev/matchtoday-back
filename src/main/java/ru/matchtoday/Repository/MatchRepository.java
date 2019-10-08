@@ -8,4 +8,6 @@ import java.util.List;
 public interface MatchRepository extends JpaRepository<Match, Long> {
 
     List<Match> findByHomeTeam(String homeTeam);
+
+    Match findByLsId(String lsId);
 }

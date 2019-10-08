@@ -1,7 +1,9 @@
 CREATE TABLE tournaments (
-    id INT NOT NULL,
+    id serial NOT NULL,
     name VARCHAR(50),
-    ls_id INT,
+    country VARCHAR(10),
+    ls_id VARCHAR(50),
+    is_active BOOLEAN,
     created_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL,
     updated_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL,
     PRIMARY KEY(id)

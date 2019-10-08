@@ -1,5 +1,5 @@
 CREATE TABLE tournament_stages (
-    id INT NOT NULL,
+    id serial NOT NULL,
     tournament_id INT,
     name varchar(50),
     created_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL,

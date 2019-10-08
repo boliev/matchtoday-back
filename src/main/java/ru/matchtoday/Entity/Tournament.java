@@ -18,7 +18,11 @@ public class Tournament {
 
     private String name;
 
-    private Long lsId;
+    private String country;
+
+    private String lsId;
+
+    private Boolean isActive;
 
     @CreationTimestamp
     private LocalDateTime createdAt;
@@ -49,11 +53,19 @@ public class Tournament {
         return updatedAt;
     }
 
-    public Long getLsId() {
+    public String getLsId() {
         return lsId;
     }
 
-    public void setLsId(Long lsId) {
+    public void setLsId(String lsId) {
         this.lsId = lsId;
+    }
+
+    public Boolean isActive() {
+        return isActive;
+    }
+
+    public String getCountry() {
+        return country;
     }
 }

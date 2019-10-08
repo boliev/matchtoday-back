@@ -27,7 +27,7 @@ public class Match {
     @ManyToOne
     private TournamentStage tournamentStage;
 
-    private Long lsId;
+    private String lsId;
 
     private Timestamp datetime;
 
@@ -37,7 +37,7 @@ public class Match {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
-    protected Match() {
+    public Match() {
     }
 
     public Match(Team homeTeam, Team guestTeam, Timestamp datetime, Tournament tournament, TournamentStage tournamentStage) {
@@ -80,11 +80,31 @@ public class Match {
         return updatedAt;
     }
 
-    public Long getLsId() {
+    public String getLsId() {
         return lsId;
     }
 
-    public void setLsId(Long lsId) {
+    public void setLsId(String lsId) {
         this.lsId = lsId;
+    }
+
+    public void setHomeTeam(Team homeTeam) {
+        this.homeTeam = homeTeam;
+    }
+
+    public void setGuestTeam(Team guestTeam) {
+        this.guestTeam = guestTeam;
+    }
+
+    public void setTournament(Tournament tournament) {
+        this.tournament = tournament;
+    }
+
+    public void setTournamentStage(TournamentStage tournamentStage) {
+        this.tournamentStage = tournamentStage;
+    }
+
+    public void setDatetime(Timestamp datetime) {
+        this.datetime = datetime;
     }
 }

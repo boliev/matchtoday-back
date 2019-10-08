@@ -1,10 +1,10 @@
 CREATE TABLE matches (
-    id INT NOT NULL,
+    id serial NOT NULL,
     home_team_id INT,
     guest_team_id INT,
     tournament_id INT,
     tournament_stage_id INT,
-    ls_id INT,
+    ls_id VARCHAR(50),
     datetime TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL,
     created_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL,
     updated_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL,

@@ -20,7 +20,7 @@ public class Team {
 
     private String country;
 
-    private Long lsId;
+    private String lsId;
 
     @CreationTimestamp
     private LocalDateTime createdAt;
@@ -35,6 +35,10 @@ public class Team {
         this.name = name;
         this.country = country;
 
+    }
+
+    public Team(String name) {
+        this.name = name;
     }
 
     public Long getId() {
@@ -57,11 +61,15 @@ public class Team {
         return updatedAt;
     }
 
-    public Long getLsId() {
+    public String getLsId() {
         return lsId;
     }
 
-    public void setLsId(Long lsId) {
+    public void setLsId(String lsId) {
         this.lsId = lsId;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 }
