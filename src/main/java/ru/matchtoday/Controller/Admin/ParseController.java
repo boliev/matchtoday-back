@@ -12,7 +12,6 @@ import ru.matchtoday.Repository.TeamRepository;
 import ru.matchtoday.Repository.TournamentRepository;
 import ru.matchtoday.Repository.TournamentStageRepository;
 
-import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -36,9 +35,8 @@ public class ParseController {
     private Logger logger = LoggerFactory.getLogger(ParseController.class);
 
     @RequestMapping("/admin/parse")
-    public String parse() throws IOException, InterruptedException {
-
-        List<Tournament> tournaments = tournamentRepository.findAll();
+    public String parse() {
+        List<Tournament> tournaments = tournamentRepository.findByIsActive(true);
 
         for (Tournament tournament : tournaments) {
             parser.parseTournament(tournament);
