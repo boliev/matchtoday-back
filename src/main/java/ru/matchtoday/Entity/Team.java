@@ -1,5 +1,6 @@
 package ru.matchtoday.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -20,12 +21,15 @@ public class Team {
 
     private String country;
 
+    @JsonIgnore
     private String lsId;
 
     @CreationTimestamp
+    @JsonIgnore
     private LocalDateTime createdAt;
 
     @UpdateTimestamp
+    @JsonIgnore
     private LocalDateTime updatedAt;
 
     protected Team() {

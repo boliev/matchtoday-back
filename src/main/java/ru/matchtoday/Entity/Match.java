@@ -1,5 +1,6 @@
 package ru.matchtoday.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -27,14 +28,17 @@ public class Match {
     @ManyToOne
     private TournamentStage tournamentStage;
 
+    @JsonIgnore
     private String lsId;
 
     private Timestamp datetime;
 
     @CreationTimestamp
+    @JsonIgnore
     private LocalDateTime createdAt;
 
     @UpdateTimestamp
+    @JsonIgnore
     private LocalDateTime updatedAt;
 
     public Match() {
