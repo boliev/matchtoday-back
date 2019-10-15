@@ -106,11 +106,12 @@ public class Client {
                 matchJson.getString("away_name")
         );
 
+        String round = matchJson.isNull("round") ? "" : matchJson.getString("round");
         return new MatchDto(
                 matchJson.getString("id"),
                 matchJson.getString("date"),
                 matchJson.getString("time"),
-                matchJson.getString("round"),
+                round,
                 homeTeam,
                 awayTeam,
                 matchJson.getString("competition_id")
