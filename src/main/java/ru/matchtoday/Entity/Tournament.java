@@ -1,5 +1,6 @@
 package ru.matchtoday.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -20,14 +21,18 @@ public class Tournament {
 
     private String country;
 
+    @JsonIgnore
     private String lsId;
 
+    @JsonIgnore
     private Boolean isActive;
 
     @CreationTimestamp
+    @JsonIgnore
     private LocalDateTime createdAt;
 
     @UpdateTimestamp
+    @JsonIgnore
     private LocalDateTime updatedAt;
 
     protected Tournament() {
@@ -59,10 +64,6 @@ public class Tournament {
 
     public void setLsId(String lsId) {
         this.lsId = lsId;
-    }
-
-    public Boolean isActive() {
-        return isActive;
     }
 
     public String getCountry() {
