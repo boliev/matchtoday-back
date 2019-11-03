@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface TournamentRepository extends JpaRepository<Tournament, Long> {
     List<Tournament> findByIsActive(boolean isActive);
+
+    List<Tournament> findByIdIn(List<Long> ids);
 }
