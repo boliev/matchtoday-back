@@ -1,16 +1,10 @@
 package ru.matchtoday.Repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import ru.matchtoday.Entity.Match;
 
-import java.sql.Timestamp;
-import java.util.List;
-
-public interface MatchRepository extends JpaRepository<Match, Long> {
-
-    List<Match> findByHomeTeam(String homeTeam);
-
+public interface MatchRepository extends JpaRepository<Match, Long>, JpaSpecificationExecutor<Match> {
+    
     Match findByLsId(String lsId);
-
-    List<Match> findByDatetimeBetween(Timestamp from, Timestamp to);
 }
